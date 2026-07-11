@@ -10,9 +10,9 @@ CERBERUS is a research architecture for autonomous-system runtime assurance. It 
 
 ## Release status
 
-This repository is a **v3.3 release candidate and research prototype**. It is not flight-certified software, not a completed safety case, and not a claim of operational readiness.
+This repository is a **v3.4 release candidate and research prototype**. It is not flight-certified software, not a completed safety case, and not a claim of operational readiness.
 
-The strongest reviewer-safe novelty hypothesis is architectural: a targeted primary-source review located no exact match for the complete loop in which the pessimistic upper bound of measured inter-layer failure-mode overlap becomes a controlled runtime resource—define it, monitor its drift, adversarially challenge omissions, budget authority against it, demote immediately, and restore only through fresh evidence.
+The strongest reviewer-safe novelty hypothesis is architectural: a targeted primary-source review located no exact match for the complete loop in which the pessimistic upper bound of measured inter-layer failure-mode overlap becomes a controlled runtime resource - define it, monitor its drift, adversarially challenge omissions, budget authority against it, demote immediately, and restore only through fresh evidence.
 
 ## Architecture
 
@@ -21,7 +21,7 @@ flowchart TB
     P[Pilot\nAdaptive reasoning\nProposes, never executes]
     W[Watchdog\nDeterministic gate\nPhysics and certified constraints]
     A[Anchor\nMinimum survivable authority\nPower, thermal, orientation, contact]
-    V[Vigil\nNon-authoritative evidence layer\nMeasures independence drift]
+    V[Vigil\nPassive baseline evidence layer\nMeasures independence drift]
 
     P -->|proposals| W
     W -->|validated commands| A
@@ -30,49 +30,48 @@ flowchart TB
     W -->|constraints and rejection reasons| P
 ```
 
-- **Pilot** — adaptive reasoning and proposal generation; never directly executes.
-- **Watchdog** — deterministic gate against physics invariants, hard envelopes, and certified constraints.
-- **Anchor** — minimal mission-survivable authority for power, thermal, orientation, authenticated contact, and bounded recovery.
-- **Vigil** — non-authoritative evidence layer that measures whether the other layers remain independent.
+- **Pilot** - adaptive reasoning and proposal generation; never directly executes.
+- **Watchdog** - deterministic gate against physics invariants, hard envelopes, and certified constraints.
+- **Anchor** - minimal mission-survivable authority for power, thermal, orientation, authenticated contact, and bounded recovery.
+- **Vigil** - non-authoritative evidence layer whose load-bearing baseline is passive conditioned-residual monitoring.
 
 Shared information is allowed. Shared cognition and shared authority failure modes are not.
 
 ## Start here
 
-- [CERBERUS v3.3 release-candidate paper](docs/CERBERUS_v3.3_Release_Candidate.pdf)
-- [Editable paper source](docs/CERBERUS_v3.3_Release_Candidate.docx)
+- [CERBERUS v3.4 reviewer-hardened paper](docs/CERBERUS_v3.4_Release_Candidate.md)
+- [CERBERUS v3.3 formatted paper - PDF](docs/CERBERUS_v3.3_Release_Candidate.pdf)
+- [CERBERUS v3.3 editable paper - DOCX](docs/CERBERUS_v3.3_Release_Candidate.docx)
 - [Anchor Reference Specification](docs/CERBERUS_Anchor_Reference_Specification_v1.docx)
 - [Adversarial Casebook](docs/CERBERUS_Adversarial_Casebook_v1.docx)
 - [Interactive Vigil Lab](vigil-lab/index.html)
 - [Novelty and primary-reference workbook](evidence/CERBERUS_Novelty_and_Reference_Matrix_v3.3.xlsx)
-- [Dedicated reproducible Vigil experiment](https://github.com/k766807/cerberus-vigil-experiment)
+- [Dedicated Vigil pipeline-verification experiment](https://github.com/k766807/cerberus-vigil-experiment)
 - [Implementation-status boundary](evidence/implementation_status.json)
 
-## What changed in v3.3
+## What changed in v3.4
 
-- Corrected the remaining v3.2 editorial defects.
-- Verified 37 retained references against primary publisher, agency, standards-body, official-report, or author-manuscript sources.
-- Completed an 18-claim novelty matrix with closest prior art, confidence, and permitted claim language.
-- Formalized structural and probabilistic FCOI, uncertainty bounds, class aggregation, normalized budget, and authority transitions.
-- Added a fixed-seed reproducible synthetic Vigil experiment with machine-readable outputs.
-- Separated implemented prototypes, implemented research artifacts, specifications, proposed mechanisms, open theory, and future validation.
-- Added the shared-ontology limitation and proposed a graph-external empirical witness as future work.
+- Reframed the synthetic result as a **matched-model pipeline-verification test**, not operational detector validation.
+- Named the tautology risk explicitly: perfect separation is expected when the detector matches the generator.
+- Clarified probabilistic FCOI as the share of total pair failure exposure attributable to shared-root joint failure.
+- Required reporting of both marginal failure probabilities, the shared-root numerator, the union denominator, and the final ratio.
+- Added a marginal-health promotion guard so worsening single-layer reliability cannot manufacture authority by lowering the ratio.
+- Made passive conditioned-residual monitoring the load-bearing Vigil baseline.
+- Reclassified sentinel injection as an optional, disabled-by-default diagnostic extension with no safety-case credit until independently validated.
 
-## Reproducible experiment
-
-The experiment tests one narrow proposition: after conditioning two synthetic channels on a measured common environment, an emerging latent shared pathway can be detected from residual dependence before a predefined behavioral-symptom time, and a conservative upper bound can drive illustrative authority contraction.
+## Matched-model pipeline verification
 
 The maintained implementation, tests, committed reference outputs, and CI reproduction workflow live in the dedicated [`cerberus-vigil-experiment`](https://github.com/k766807/cerberus-vigil-experiment) repository.
 
-Fixed results from the supplied synthetic model:
+Fixed results from the supplied matched synthetic model:
 
-- Nominal false-alarm runs: **0 / 200**
+- Nominal sustained-alarm runs: **0 / 200**
 - Coupling detections: **200 / 200**
 - Median detection sample: **1061.5**
 - Median lead before symptom: **238.5 samples**
-- 10th–90th percentile lead: **160.9–319.6 samples**
+- 10th-90th percentile lead: **160.9-319.6 samples**
 
-These results are not estimates of flight performance and do not validate full probabilistic FCOI, transfer entropy, sentinel safety, spacecraft FDIR, or flight authority logic.
+> Perfect separation is expected in this matched-model setting. These numbers verify pipeline wiring, fixed-seed reproducibility, and conservative-bound behavior under known ground truth. They are not estimates of flight performance, realistic detection difficulty, robustness to model mismatch, full probabilistic FCOI, transfer entropy, sentinel safety, spacecraft FDIR, or flight authority logic.
 
 ```bash
 git clone https://github.com/k766807/cerberus-vigil-experiment.git
@@ -87,10 +86,10 @@ python run_experiment.py
 ### Implemented research artifacts
 
 - Browser Vigil Lab demonstrator
-- Synthetic independence-decay experiment
+- Matched-model synthetic pipeline-verification experiment
 - Adversarial Casebook
 - Anchor Reference Specification
-- Illustrative A3–A0 authority-state transitions
+- Illustrative A3-A0 authority-state transitions
 
 ### Specified but not implemented
 
@@ -99,10 +98,10 @@ python run_experiment.py
 - Integrated Pilot shadow-mode red team
 - Authenticated expiring ground-recovery command stack
 
-### Proposed or open
+### Proposed or optional
 
 - Conditional transfer entropy extension
-- Hardware-in-the-loop sentinel safety case
+- Optional channel-specific sentinel interrogation
 - Graph-external empirical witness
 - Three-layer conservative reliability proof
 - Flight or hardware-in-the-loop validation
@@ -120,7 +119,7 @@ python run_experiment.py
 
 ## Licensing and disclosure
 
-No software or documentation license is selected in this release. Do not infer permission to use, modify, redistribute, or commercialize the contents from public availability alone. This is not a patentability opinion.
+This repository currently carries an [MIT License](LICENSE). Review that license before reuse or redistribution. Public availability and software licensing do not constitute a patentability opinion or operational certification.
 
 ## Author
 
