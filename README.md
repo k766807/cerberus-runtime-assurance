@@ -45,7 +45,7 @@ Shared information is allowed. Shared cognition and shared authority failure mod
 - [Adversarial Casebook](docs/CERBERUS_Adversarial_Casebook_v1.docx)
 - [Interactive Vigil Lab](vigil-lab/index.html)
 - [Novelty and primary-reference workbook](evidence/CERBERUS_Novelty_and_Reference_Matrix_v3.3.xlsx)
-- [Reproducible synthetic experiment](experiment/README.md)
+- [Dedicated reproducible Vigil experiment](https://github.com/k766807/cerberus-vigil-experiment)
 - [Implementation-status boundary](evidence/implementation_status.json)
 
 ## What changed in v3.3
@@ -62,6 +62,8 @@ Shared information is allowed. Shared cognition and shared authority failure mod
 
 The experiment tests one narrow proposition: after conditioning two synthetic channels on a measured common environment, an emerging latent shared pathway can be detected from residual dependence before a predefined behavioral-symptom time, and a conservative upper bound can drive illustrative authority contraction.
 
+The maintained implementation, tests, committed reference outputs, and CI reproduction workflow live in the dedicated [`cerberus-vigil-experiment`](https://github.com/k766807/cerberus-vigil-experiment) repository.
+
 Fixed results from the supplied synthetic model:
 
 - Nominal false-alarm runs: **0 / 200**
@@ -73,11 +75,12 @@ Fixed results from the supplied synthetic model:
 These results are not estimates of flight performance and do not validate full probabilistic FCOI, transfer entropy, sentinel safety, spacecraft FDIR, or flight authority logic.
 
 ```bash
-cd experiment
+git clone https://github.com/k766807/cerberus-vigil-experiment.git
+cd cerberus-vigil-experiment
+python -m pip install -e ".[dev]"
+pytest
 python run_experiment.py
 ```
-
-Dependencies: NumPy and Matplotlib.
 
 ## Evidence boundary
 
@@ -109,7 +112,7 @@ Dependencies: NumPy and Matplotlib.
 ```text
 ├── docs/              paper, specifications, casebook, diagrams
 ├── evidence/          novelty matrix, reference records, status boundary
-├── experiment/        fixed-seed synthetic experiment and outputs
+├── experiment/        archived v3.3 experiment snapshot
 ├── vigil-lab/         interactive browser demonstrator
 ├── verification/      traceability material
 └── tools/             document-generation utilities
