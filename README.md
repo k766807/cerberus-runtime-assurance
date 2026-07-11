@@ -217,9 +217,9 @@ Its baseline is passive monitoring. Its evidence may reduce permission or declar
 
 Let
 
-$$
+```math
 I = \{P, W, A\}
-$$
+```
 
 represent Pilot, Watchdog, and Anchor. Let $K$ be a set of consequence-relevant failure classes, such as:
 
@@ -232,9 +232,9 @@ For layer $i$, failure class $k$, and exposure interval $\Delta$, let $F_{i,k}(\
 
 For each class $k$, let
 
-$$
+```math
 G_k = (V_k, E_k)
-$$
+```
 
 be a reviewed directed causal graph containing root causes, measured environmental variables, propagation mechanisms, and terminal layer failures.
 
@@ -242,12 +242,9 @@ be a reviewed directed causal graph containing root causes, measured environment
 
 Let $M_{i,k}$ be the family of minimal cut sets sufficient to produce $F_{i,k}$. The exact-match structural overlap between layers $i$ and $j$ is
 
-$$
-\mathrm{FCOI}^{S}_{ij,k}
-=
-\frac{|M_{i,k} \cap M_{j,k}|}
-{|M_{i,k} \cup M_{j,k}|}.
-$$
+```math
+\mathrm{FCOI}^{S}_{ij,k} = \frac{|M_{i,k} \cap M_{j,k}|}{|M_{i,k} \cup M_{j,k}|}.
+```
 
 This value is defined only when the union is nonempty.
 
@@ -261,15 +258,9 @@ Let $C_{ij,k}(\Delta)$ denote the event that both $F_{i,k}$ and $F_{j,k}$ occur 
 
 Define
 
-$$
-\mathrm{FCOI}^{P}_{ij,k}(t;\Delta)
-=
-\frac{
-P(C_{ij,k}(\Delta)\mid D_t)
-}{
-P(F_{i,k}(\Delta)\cup F_{j,k}(\Delta)\mid D_t)
-}.
-$$
+```math
+\mathrm{FCOI}^{P}_{ij,k}(t;\Delta) = \frac{P(C_{ij,k}(\Delta)\mid D_t)}{P(F_{i,k}(\Delta)\cup F_{j,k}(\Delta)\mid D_t)}.
+```
 
 Because the shared-root joint-failure event is a subset of the union event, this quantity can be read as:
 
@@ -289,29 +280,17 @@ It is not a reliability-invariant dependence coefficient. Because the denominato
 
 The runtime value used for authority decisions is the upper defensible bound:
 
-$$
-\mathrm{FCOI}_{ij,k}(t)
-=
-\mathrm{UCB}_{1-\alpha}
-\left(
-\mathrm{FCOI}^{P}_{ij,k}(t)
-\right).
-$$
+```math
+\mathrm{FCOI}_{ij,k}(t) = \mathrm{UCB}_{1-\alpha}\!\left(\mathrm{FCOI}^{P}_{ij,k}(t)\right).
+```
 
 Higher overlap means less independence, so a lower confidence bound would flatter the system.
 
 Define a triple-layer quantity analogously and let
 
-$$
-O_k(t)
-=
-\max\left\{
-\mathrm{FCOI}_{PW,k},
-\mathrm{FCOI}_{PA,k},
-\mathrm{FCOI}_{WA,k},
-\mathrm{FCOI}_{PWA,k}
-\right\}.
-$$
+```math
+O_k(t) = \max\left\{\mathrm{FCOI}_{PW,k},\mathrm{FCOI}_{PA,k},\mathrm{FCOI}_{WA,k},\mathrm{FCOI}_{PWA,k}\right\}.
+```
 
 The maximum is deliberately conservative and auditable.
 
@@ -390,35 +369,27 @@ For each failure class $k$, design review establishes:
 
 Define the overlap margin
 
-$$
+```math
 m_k(t) = \theta_k - O_k(t),
-$$
+```
 
 the class budget
 
-$$
-b_k(t)
-=
-\operatorname{clip}
-\left(
-\frac{\theta_k - O_k(t)}
-{\theta_k - O_{k,0}},
-0,
-1
-\right),
-$$
+```math
+b_k(t) = \operatorname{clip}\!\left(\frac{\theta_k - O_k(t)}{\theta_k - O_{k,0}},0,1\right),
+```
 
 and the system budget
 
-$$
+```math
 B(t) = \min_{k\in K} b_k(t).
-$$
+```
 
 If evidence for class $k$ is stale, invalid, inconsistent, or non-estimable, then
 
-$$
-b_k(t)=0
-$$
+```math
+b_k(t) = 0
+```
 
 until valid evidence is restored.
 
@@ -507,7 +478,7 @@ It cannot:
 
 ## Matched-model pipeline verification
 
-The maintained implementation, tests, committed reference outputs, and CI reproduction workflow live in the dedicated [`cerberus-vigil-experiment`](https://github.com/k766807/cerberus-vigil-experiment) repository.
+The maintained implementation, tests, committed reference outputs, and CI reproduction workflow live in the dedicated [`cerberus-vigil-experiment`](https://github.com/emilyecht/cerberus-vigil-experiment) repository.
 
 ### Purpose
 
@@ -579,7 +550,7 @@ The next experiments must intentionally break the match between detector and gen
 ### Reproduce the experiment
 
 ```bash
-git clone https://github.com/k766807/cerberus-vigil-experiment.git
+git clone https://github.com/emilyecht/cerberus-vigil-experiment.git
 cd cerberus-vigil-experiment
 python -m pip install -e ".[dev]"
 pytest
@@ -685,7 +656,7 @@ The proposed architectural contribution is to make the independence of the guard
 - [Adversarial Casebook](docs/CERBERUS_Adversarial_Casebook_v1.docx)
 - [Interactive Vigil Lab](vigil-lab/index.html)
 - [Novelty and primary-reference workbook](evidence/CERBERUS_Novelty_and_Reference_Matrix_v3.3.xlsx)
-- [Dedicated Vigil pipeline-verification experiment](https://github.com/k766807/cerberus-vigil-experiment)
+- [Dedicated Vigil pipeline-verification experiment](https://github.com/emilyecht/cerberus-vigil-experiment)
 - [Implementation-status boundary](evidence/implementation_status.json)
 
 The complete bibliography and citation details are maintained in the manuscript source and reference files under [`paper/arxiv/`](paper/arxiv/).
