@@ -1,0 +1,86 @@
+[
+  {
+    "component": "Vigil Lab browser demonstrator",
+    "classification": "Implemented explanatory prototype",
+    "evidence": "Interactive HTML, telemetry export, authority-state visualization",
+    "limits": "Not flight software; simplified proxy dynamics."
+  },
+  {
+    "component": "Synthetic independence-decay experiment",
+    "classification": "Implemented reproducible experiment",
+    "evidence": "Fixed-seed Python script, separate calibration/evaluation ensembles, CSV/JSON/PNG outputs",
+    "limits": "Synthetic channels; residual correlation proxy, not full probabilistic FCOI."
+  },
+  {
+    "component": "Adversarial Casebook",
+    "classification": "Implemented research artifact",
+    "evidence": "18 traced red-team scenarios and verification criteria",
+    "limits": "Scenario library is not exhaustive and is not a certified FMEA/PRA."
+  },
+  {
+    "component": "Anchor Reference Specification",
+    "classification": "Implemented specification artifact",
+    "evidence": "A0 modes, invariants, interfaces, forbidden transitions, recovery commitments",
+    "limits": "Specification only; no flight hardware or formally verified implementation."
+  },
+  {
+    "component": "Exact structural FCOI cut-set engine",
+    "classification": "Specified, not implemented",
+    "evidence": "Formal definition in v3.3",
+    "limits": "Requires causal graphs, FMEA inputs, and cut-set tooling."
+  },
+  {
+    "component": "Probabilistic FCOI estimator",
+    "classification": "Specified, not implemented",
+    "evidence": "Formal event ratio and uncertainty-bound rule in v3.3",
+    "limits": "Requires calibrated root-cause and propagation probability models."
+  },
+  {
+    "component": "Conditional transfer entropy",
+    "classification": "Proposed research extension",
+    "evidence": "Literature basis only",
+    "limits": "Data-hungry and estimator-sensitive; deliberately removed from the core prototype claim."
+  },
+  {
+    "component": "Sentinel injection",
+    "classification": "Proposed and safety-case constrained",
+    "evidence": "Channel classes and acceptance tests specified",
+    "limits": "No hardware-in-the-loop validation or channel-specific safety case."
+  },
+  {
+    "component": "Pilot shadow-mode red team",
+    "classification": "Specified, not implemented",
+    "evidence": "Monotonicity ratchet and review flow described",
+    "limits": "No integrated autonomous hypothesis generator or formal proof of ratchet integrity."
+  },
+  {
+    "component": "Authority control law",
+    "classification": "Prototype implementation plus formal specification",
+    "evidence": "Illustrative A3–A0 state transitions in lab; hysteresis/dwell law defined",
+    "limits": "Thresholds are illustrative and not mission-certified."
+  },
+  {
+    "component": "Authenticated expiring ground recovery",
+    "classification": "Specified, not implemented",
+    "evidence": "CCSDS-aligned recovery protocol requirements",
+    "limits": "No command-stack implementation, crypto validation, or two-party ground system."
+  },
+  {
+    "component": "Graph-external empirical witness",
+    "classification": "Proposed future work",
+    "evidence": "Architecture requirement added in response to shared-ontology risk",
+    "limits": "Algorithm, independence argument, and validation remain open."
+  },
+  {
+    "component": "Three-layer conservative reliability proof",
+    "classification": "Open theoretical work",
+    "evidence": "Research direction identified",
+    "limits": "Existing cited conservative machinery is primarily two-channel."
+  },
+  {
+    "component": "Hardware-in-the-loop / flight validation",
+    "classification": "Future validation",
+    "evidence": "Planned verification stage",
+    "limits": "No claim of certification, TRL, or operational readiness."
+  }
+]
