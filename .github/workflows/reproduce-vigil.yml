@@ -1,0 +1,56 @@
+name: Reproduce Vigil experiment
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "experiment/**"
+      - ".github/workflows/reproduce-vigil.yml"
+  pull_request:
+    paths:
+      - "experiment/**"
+
+permissions:
+  contents: read
+
+jobs:
+  reproduce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: experiment/requirements.txt
+      - name: Install dependencies
+        run: pip install -r experiment/requirements.txt
+      - name: Run fixed-seed experiment
+        run: python experiment/run_experiment.py --out reproduced-results
+      - name: Check headline metrics
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          expected = json.loads(Path('experiment/results/summary.json').read_text())
+          actual = json.loads(Path('reproduced-results/summary.json').read_text())
+          keys = [
+              'nominal_false_alarm_runs',
+              'coupling_detection_runs',
+              'median_detection_sample',
+              'median_detection_lead_samples',
+              'representative_detection_sample',
+              'representative_first_A2',
+              'representative_first_A1',
+              'representative_first_A0',
+          ]
+          mismatches = {k: (expected[k], actual[k]) for k in keys if expected[k] != actual[k]}
+          if mismatches:
+              raise SystemExit(f'Reproduction mismatch: {mismatches}')
+          print('Headline metrics reproduce exactly.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vigil-reproduced-results
+          path: reproduced-results/
