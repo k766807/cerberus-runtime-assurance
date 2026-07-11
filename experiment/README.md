@@ -10,7 +10,7 @@ python run_experiment.py
 
 Python dependencies: `numpy`, `matplotlib`.
 
-The script uses fixed seeds and writes all outputs to `results/`.
+The script uses fixed seeds and writes all outputs to `results/`. The repository workflow `.github/workflows/reproduce-vigil.yml` runs the experiment in a clean Python environment and compares the headline metrics with the committed summary.
 
 ## Model
 
