@@ -1,0 +1,20 @@
+flowchart LR
+    N([A0-NOMINAL<br/>minimum survivable set])
+    P([A0-POWER<br/>power-positive attitude])
+    T([A0-THERMAL<br/>thermal survival hold])
+    C([A0-CONTAIN<br/>actuator / bus isolation])
+    M([A0-COMMS<br/>authenticated contact posture])
+    R([A0-RECOVERY<br/>expiring diagnostic window])
+
+    N -->|undervoltage risk| P
+    N -->|thermal margin loss| T
+    N -->|unsafe output / watchdog trip| C
+    P -->|actuator fault| C
+    T -->|sensor disagreement| C
+    C -->|fault contained| M
+    P -->|stable power + contact| M
+    T -->|thermal stabilized| M
+    N -->|Vigil unknown / contact due| M
+    M -->|authenticated two-party directive| R
+    R -->|window expires / evidence fails| M
+    R -->|fresh evidence + dwell| N
