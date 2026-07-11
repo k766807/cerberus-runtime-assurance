@@ -60,6 +60,8 @@ This repository contains the **v3.5 arXiv submission manuscript and research pro
 - not a validated spacecraft fault-detection system;
 - not a patentability opinion.
 
+**arXiv submission status:** The manuscript is being prepared for submission to **eess.SY — Systems and Control** and is currently **seeking the required category endorsement**. Endorsement confirms subject-area fit; it is not peer review, acceptance, or publication.
+
 The strongest reviewer-safe novelty hypothesis is architectural: a targeted primary-source review located no exact match for the complete loop in which the pessimistic upper bound of measured inter-layer failure-mode overlap becomes a controlled runtime resource.
 
 ## Abstract
