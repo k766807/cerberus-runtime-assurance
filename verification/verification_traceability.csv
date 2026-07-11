@@ -1,0 +1,12 @@
+requirement_id,artifact,claim_or_invariant,test_or_evidence,acceptance_criterion,status
+REQ-FCOI-01,docs/CERBERUS_v3.3_Release_Candidate.md,Structural FCOI uses minimal cut-set families,Independent model review and worked cut-set example,No enumerated-path double counting and all admitted edges have documented mechanisms,Specified
+REQ-FCOI-02,docs/CERBERUS_v3.3_Release_Candidate.md,Operational budget uses pessimistic upper FCOI bound,Unit test with asymmetric uncertainty interval,Higher uncertainty never increases authority,Specified
+REQ-VIG-01,experiment/run_experiment.py,Conditioning suppresses benign common stimulus,Nominal ensemble and benign-stimulus scenario,False-alarm criterion met under declared synthetic model,Implemented prototype
+REQ-VIG-02,experiment/run_experiment.py,Emerging latent coupling is detected before symptom time,200 fixed-seed coupling runs,Detection rate and lead-time statistics reproduce,Implemented prototype
+REQ-AUTH-01,vigil-lab/index.html,Demotion is immediate and may skip levels,Drive budget below multiple thresholds,Authority reaches demanded lower level in same update,Implemented prototype
+REQ-AUTH-02,vigil-lab/index.html,Promotion is sequential and dwell-gated,Recover from A0 under healthy margin,No upward level skip and full dwell required,Implemented prototype
+REQ-ANCHOR-01,docs/CERBERUS_Anchor_Reference_Specification_v1.md,Ground cannot write budget or assign authority,Interface and command-path review,No ground-to-budget or ground-to-authority command path exists,Specified
+REQ-ANCHOR-02,docs/CERBERUS_Anchor_Reference_Specification_v1.md,Anchor invariants are non-overridable,Hardware/software architecture review,No higher-layer or ground command disables an invariant,Specified
+REQ-REDTEAM-01,docs/CERBERUS_Adversarial_Casebook_v1.md,Pilot red-team output is monotonic,Adversarial shadow-campaign tests,Zero instances of constraint relaxation or authority promotion,Specified
+REQ-AVAIL-01,docs/CERBERUS_Anchor_Reference_Specification_v1.md,A0 remains mission-survivable and recoverable,Power thermal communications and recovery tests,Vehicle preserves declared survival floors and authenticated contact,Future validation
+REQ-ONTOLOGY-01,evidence/novelty-matrix/README.md,Causal ontology is not the sole judge of its adequacy,Graph-external witness design review,Witness uses different representations and can only reduce confidence,Proposed future work
