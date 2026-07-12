@@ -16,11 +16,11 @@ The manuscript uses only local text assets: the LaTeX source, section files, exa
 
 The paper is a research preprint, not flight-certified software, a completed safety case, or a claim of operational readiness. The fixed-seed experiment is explicitly framed as matched-model pipeline verification.
 
-## Suggested arXiv routing
+## arXiv routing
 
-Likely primary categories are `cs.SY` or `eess.SY`, with `cs.RO` as a possible cross-list. The submitter should select the category that best matches the final emphasis and endorsement availability.
+The intended primary category is **`eess.SY` — Systems and Control**. Use the same category in the repository README and the arXiv submission form. A robotics cross-list may be considered later only if the final submission emphasis supports it.
 
 ## Repositories
 
-- Architecture and paper: https://github.com/k766807/cerberus-runtime-assurance
-- Reproducible experiment: https://github.com/k766807/cerberus-vigil-experiment
+- Architecture and paper: https://github.com/emilyecht/cerberus-runtime-assurance
+- Reproducible experiment: https://github.com/emilyecht/cerberus-vigil-experiment
